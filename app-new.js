@@ -8,6 +8,7 @@ http.createServer((req, res) => {
   const name = url.searchParams.get('name');
 
   // Vulnerable code: directly using user input in a command
+  // new code
   exec(`echo Hello, ${name}`, (error, stdout, stderr) => {
     if (error) {
       res.writeHead(500, { 'Content-Type': 'text/plain' });
